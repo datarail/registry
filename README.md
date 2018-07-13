@@ -26,7 +26,7 @@ Current containers:
   1. Upload your code to a GitHub repository. Include an example config file, example `docker-compose.yml` (preferably making use of the example data) as well as a README that describes the expected arguments and/or environment variables.
   2. Create a DockerHub account. Contact Jeremy, Douglas or Artem to be added to the datarail group.
   3. Configure a DockerHub repository for the Docker image to automatically build the master branch and tags of the GitHub repository on commit (https://docs.docker.com/docker-hub/builds/).
-  4. Send an e-mail to @ArtemSokolov with a one-paragraph description of your method and a link to your GitHub repo.
+  4. Send an e-mail to [@ArtemSokolov](https://github.com/ArtemSokolov) with a one-paragraph description of your method and a link to your GitHub repo.
 
 ### Exemplify
 
