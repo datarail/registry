@@ -16,21 +16,18 @@ Current containers:
 
 ### Package
 
-  1. Put together a Dockerfile that lists all the necessary dependencies for containerizing your code. See examples for [Python](https://github.com/datarail/concat-docker/blob/master/Dockerfile) and [R](https://github.com/datarail/cscwg/blob/master/pamsig/Dockerfile).
-  2. Build your container by running `docker build -t datarail/<container name>:v1 .` (Replace `<container name>` with the name of your container and `v1` with the version number).
-  3. Verify locally that your container runs as expected by executing `docker run -v <path to config>:/config -v <path to data>:/input -v <path to results>:/output datarail/<container name>:v1`
+  1. Put together a Dockerfile that installs and configures all the necessary dependencies for containerizing your code. See examples for [Python](https://github.com/datarail/concat-docker/blob/master/Dockerfile) and [R](https://github.com/datarail/cscwg/blob/master/pamsig/Dockerfile).
+  2. `cd` into the directory containing the `Dockerfile`.
+  3. Build your container by running `docker build -t datarail/<container name> .`
+  4. Verify locally that your container runs as expected by executing `docker run -v <path to config>:/config -v <path to data>:/input -v <path to results>:/output datarail/<container name>` or by using a docker-compose file (see concat for an [example](https://github.com/datarail/concat-docker/blob/master/docker-compose.yml)).
 
 ### Deploy
 
-  1. Upload your code to a GitHub repository. Include an example config file, as well as a README that describes the expected parameter fields.
+  1. Upload your code to a GitHub repository. Include an example config file, example `docker-compose.yml` (preferably making use of the example data) as well as a README that describes the expected arguments and/or environment variables.
   2. Create a DockerHub account. Contact Jeremy, Douglas or Artem to be added to the datarail group.
-  3. Push your container image to DockerHub by running
-  ```
-  docker login
-  docker push datarail/<container name>:v1
-  ```
-  4. Send an e-mail to Artem with a one-paragraph description of your method and a link to your GitHub repo.
+  3. Configure a DockerHub repository for the Docker image to automatically build the master branch and tags of the GitHub repository on commit (https://docs.docker.com/docker-hub/builds/).
+  4. Send an e-mail to @ArtemSokolov with a one-paragraph description of your method and a link to your GitHub repo.
 
 ### Exemplify
 
-  It is strongly recommended to create an exemplar dataset to be used with your container. Currently, LSP hosts exemplar data for Datarail pipelines in AWS S3 buckets. To upload your data, post in the @aws Slack channel requesting to be added to our AWS organization. After getting access, upload your data to `datarail-example-data/<container name>/`.
+It is strongly recommended to create an exemplar dataset to be used with your container. Currently, LSP hosts exemplar data for Datarail pipelines in AWS S3 buckets. To upload your data, post in the @aws Slack channel requesting to be added to our AWS organization. After getting access, upload your data to `datarail-example-data/<container name>/`. Please provide instructions in the application README on how to download the examplar data in preparation for using the exemplar docker-compose file.
